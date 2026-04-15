@@ -4,13 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sai Kiran & Mounika Wedding Invitation</title>
-    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;600&family=Updock&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;600&family=Playfair+Display:ital,wght@1,600&family=Updock&display=swap" rel="stylesheet">
     <style>
         :root {
             --primary-gold: #D4AF37;
             --deep-red: #800000;
-            --rose-pink: #ffb7c5;
-            --text-gradient: linear-gradient(to right, #ff416c, #ff4b2b);
+            --rose-pink: #ff69b4;
+            --bg-accent: #ffdada;
+            --card-glass: rgba(255, 255, 255, 0.9);
+            --gradient-text: linear-gradient(45deg, #ff416c, #ff4b2b, #fdbb2d);
         }
 
         body, html {
@@ -20,14 +22,14 @@
             scroll-behavior: smooth;
         }
 
-        /* Entry Gate - Split Screen */
+        /* Entry Gate - Split Screen (Professional Zoom on hover) */
         #entry-gate {
             display: flex;
             width: 100%;
             height: 100vh;
             position: fixed;
             z-index: 1000;
-            transition: transform 1.2s cubic-bezier(0.8, 0, 0.2, 1);
+            transition: transform 1.5s cubic-bezier(0.77, 0, 0.175, 1);
         }
 
         .side {
@@ -40,69 +42,76 @@
             cursor: pointer;
             position: relative;
             overflow: hidden;
-            transition: 0.6s ease;
+            transition: 0.6s;
         }
 
+        /* Direct links updated for Entry Gate */
         .groom-side { 
-            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), 
-            url('https://drive.google.com/uc?export=view&id=1DloDQZqnxet9MpoQTRSyVTzoa7lOWhDu') center/cover; 
-            border-right: 3px solid var(--primary-gold); 
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.3)), 
+            url('https://i.postimg.cc/xqDj4NJr/Whats-App-Image-2026-04-14-at-9-56-48-PM.jpg') center/cover; 
+            border-right: 4px solid var(--primary-gold); 
         }
         .bride-side { 
-            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), 
-            url('https://drive.google.com/uc?export=view&id=11wpzE9rmast8E5jmpe7BF0mv0aaY_XPU') center/cover; 
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.3)), 
+            url('https://i.postimg.cc/grFcTLw1/Whats-App-Image-2026-04-14-at-9-56-49-PM-(1).jpg') center/cover; 
         }
 
-        .side:hover { filter: brightness(1.2); transform: scale(1.02); }
+        .side:hover { filter: brightness(1.2); }
         .side h2 {
             font-family: 'Updock', cursive;
-            font-size: 5rem;
+            font-size: 5.5rem;
             color: white;
-            text-shadow: 2px 2px 15px rgba(0,0,0,0.9);
+            text-shadow: 2px 2px 20px rgba(0,0,0,0.9);
             margin: 0;
             z-index: 10;
         }
 
         .side p { 
-            color: gold; 
-            font-weight: bold; 
-            letter-spacing: 4px; 
+            color: var(--primary-gold); 
+            font-weight: 600; 
+            letter-spacing: 5px; 
             z-index: 10; 
-            background: rgba(0,0,0,0.5); 
-            padding: 8px 20px; 
+            background: rgba(0,0,0,0.6); 
+            padding: 10px 25px; 
             border-radius: 50px;
-            border: 1px solid gold;
+            border: 2px solid var(--primary-gold);
+            text-transform: uppercase;
         }
 
-        /* Main Content Section */
+        /* Main Content Section with Blurry Theme Background */
         #main-content {
             display: none;
             opacity: 0;
             text-align: center;
-            background: linear-gradient(135deg, #fffafa 0%, #ffecec 100%);
-            padding-bottom: 50px;
+            background: linear-gradient(135deg, rgba(255,250,250,0.8), rgba(255,236,236,0.8)), 
+                        url('https://i.postimg.cc/4nk4SHKr/Whats-App-Image-2026-04-15-at-10-30-15-PM.jpg') fixed center/cover;
+            /* Defocus logic for theme */
+            backdrop-filter: blur(10px) contrast(90%); 
+            padding-bottom: 80px;
         }
 
-        .header-box { padding: 60px 20px; animation: fadeInUp 1.5s ease; }
+        .header-box { padding: 70px 20px; animation: fadeInDown 1.5s ease; }
         .header-box h1 { 
             font-family: 'Great Vibes', cursive; 
-            font-size: 5.5rem; 
-            background: var(--text-gradient);
+            font-size: 6rem; 
+            background: var(--gradient-text);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             margin: 0;
+            text-shadow: 2px 2px 5px rgba(255,100,100,0.2);
         }
 
-        /* Slideshow Section */
+        /* Slideshow Section with Golden Border */
         .slideshow-container {
             max-width: 90%;
-            height: 60vh;
-            margin: 20px auto;
+            height: 65vh;
+            margin: 30px auto;
             position: relative;
-            border: 10px solid white;
-            border-radius: 20px;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+            border: 12px solid var(--card-glass);
+            border-radius: 25px;
+            box-shadow: 0 25px 50px rgba(0,0,0,0.3);
             overflow: hidden;
+            border-color: #fff;
         }
 
         .mySlides { 
@@ -110,50 +119,57 @@
             width: 100%; 
             height: 100%; 
             object-fit: cover; 
-            animation: kenBurns 8s infinite alternate; 
+            animation: kenBurns 9s infinite alternate; 
         }
 
         @keyframes kenBurns { 
-            from { transform: scale(1); } 
-            to { transform: scale(1.15); } 
+            from { transform: scale(1) translate(0, 0); } 
+            to { transform: scale(1.18) translate(1%, -1%); } 
         }
 
-        /* Details Section */
+        /* Modern Details Section with Scroll Animation support */
         .details-container {
             padding: 50px 20px;
-            background: rgba(255, 255, 255, 0.9);
-            margin: 30px auto;
-            width: 85%;
-            max-width: 700px;
-            border-radius: 30px;
-            border: 2px solid var(--primary-gold);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            background: var(--card-glass);
+            margin: 40px auto;
+            width: 88%;
+            max-width: 750px;
+            border-radius: 40px;
+            border: 3px solid #fff;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+            transition: 0.8s;
+            opacity: 0;
+            transform: translateY(30px);
         }
+        
+        .visible { opacity: 1 !important; transform: translateY(0) !important; }
 
-        .details-container h3 { font-family: 'Updock', cursive; font-size: 3.5rem; color: var(--deep-red); margin: 0; }
-        .info-card { margin: 25px 0; padding: 20px; border-bottom: 1px dashed #D4AF37; }
-        .info-card h4 { color: #b8860b; text-transform: uppercase; letter-spacing: 2px; font-size: 1.3rem; margin-bottom: 10px; }
-        .info-card p { font-size: 1.2rem; color: #333; margin: 5px 0; line-height: 1.6; }
+        .details-container h3 { font-family: 'Playfair Display', serif; font-style: italic; font-size: 3.5rem; color: var(--deep-red); margin: 0 0 10px 0; }
+        .info-card { margin: 30px 0; padding: 25px; border-bottom: 1px dashed var(--primary-gold); }
+        .info-card h4 { color: #b8860b; text-transform: uppercase; letter-spacing: 3px; font-size: 1.4rem; margin: 0 0 15px 0; font-weight: 600; }
+        .info-card p { font-size: 1.25rem; color: #333; margin: 8px 0; line-height: 1.7; }
 
         .btn {
             display: inline-block;
-            padding: 15px 35px;
-            background: var(--deep-red);
+            padding: 18px 40px;
+            background: linear-gradient(45deg, #a00000, var(--deep-red));
             color: white;
             text-decoration: none;
             border-radius: 50px;
-            margin: 15px 5px;
+            margin: 20px 8px;
             font-weight: 600;
+            font-size: 1.1rem;
             transition: 0.4s;
-            box-shadow: 0 4px 15px rgba(128,0,0,0.2);
+            box-shadow: 0 6px 20px rgba(128,0,0,0.3);
+            border: 2px solid #fff;
         }
-        .btn:hover { transform: translateY(-5px); background: #a00000; box-shadow: 0 8px 25px rgba(128,0,0,0.4); }
+        .btn:hover { transform: translateY(-7px) scale(1.05); box-shadow: 0 10px 30px rgba(128,0,0,0.5); }
 
-        /* Rose Petals Animation */
+        /* Slow Rose Petals Animation for realism */
         .petals-container { position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 999; }
         .petal {
             position: absolute;
-            background-color: #ffb7c5;
+            background-color: #ffc0cb;
             border-radius: 150% 0 150% 0;
             opacity: 0.6;
             animation: fall linear infinite;
@@ -161,19 +177,20 @@
 
         @keyframes fall {
             0% { transform: translateY(-10vh) rotate(0deg); opacity: 0; }
-            10% { opacity: 0.8; }
-            100% { transform: translateY(110vh) rotate(720deg); opacity: 0; }
+            5% { opacity: 0.8; }
+            100% { transform: translateY(110vh) rotate(1080deg); opacity: 0; }
         }
 
-        @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(30px); }
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-40px); }
             to { opacity: 1; transform: translateY(0); }
         }
 
         @media (max-width: 600px) {
-            .side h2 { font-size: 3rem; }
-            .header-box h1 { font-size: 3.5rem; }
-            .slideshow-container { height: 40vh; }
+            .side h2 { font-size: 3.2rem; }
+            .header-box h1 { font-size: 3.8rem; }
+            .slideshow-container { height: 45vh; border-width: 8px; }
+            .details-container { width: 92%; padding: 30px 15px; }
         }
     </style>
 </head>
@@ -183,38 +200,38 @@
 
     <div id="entry-gate">
         <div class="side groom-side" onclick="enterInvite()">
-            <p>TEAM GROOM</p>
-            <h2>Sai Kiran</h2>
+            <p>TEAM Sai Kiran</p>
+            <h2> Sai </h2>
         </div>
         <div class="side bride-side" onclick="enterInvite()">
-            <p>TEAM BRIDE</p>
-            <h2>Mounika</h2>
+            <p>TEAM Mounika</p>
+            <h2> Mounika </h2>
         </div>
     </div>
 
     <div id="main-content">
         <div class="header-box">
-            <p style="color: #D4AF37; font-weight: bold; letter-spacing: 4px;">SRIRASTHU • SUBHAMASTHU • AVIGHNAMASTHU</p>
+            <p style="color: #b8860b; font-weight: 600; letter-spacing: 5px; font-size: 1.1rem; margin-bottom: 20px;">SRIRASTHU • SUBHAMASTHU • AVIGHNAMASTHU</p>
             <h1>Sai Kiran & Mounika</h1>
-            <p style="font-size: 1.2rem; color: #666; max-width: 600px; margin: 20px auto; font-weight: 500;">
+            <p style="font-size: 1.3rem; color: #555; max-width: 650px; margin: 25px auto; font-weight: 500; line-height: 1.6;">
                 We solicit your gracious presence with family and friends on the auspicious occasion of the marriage of our younger Son.
             </p>
         </div>
 
         <div class="slideshow-container">
-            <img class="mySlides" src="https://drive.google.com/uc?export=view&id=190sOokDEK2Lqq4LTwqENNEAGl8EksFUp">
-            <img class="mySlides" src="https://drive.google.com/uc?export=view&id=1bnflzF6p__IkHBi47WvzrHPHAcqIYDpc">
-            <img class="mySlides" src="https://drive.google.com/uc?export=view&id=1s8kO-ozb-44yh4ztW2x05nrCCiKldjPz">
-            <img class="mySlides" src="https://drive.google.com/uc?export=view&id=12X2duOGiwhXuFBBdyWf8p1vDkztB9LC4">
-            <img class="mySlides" src="https://drive.google.com/uc?export=view&id=1_-cJQ5KqWGDAbFRr5qbRrjC4NTacKgtN">
+            <img class="mySlides" src="https://i.postimg.cc/7b8PWJCc/Whats-App-Image-2026-04-15-at-10-30-15-PM-(2).jpg">
+            <img class="mySlides" src="https://i.postimg.cc/4nk4SHKS/Whats-App-Image-2026-04-15-at-10-30-16-PM.jpg">
+            <img class="mySlides" src="https://i.postimg.cc/XXSNzBZ1/Whats-App-Image-2026-04-15-at-10-30-16-PM-(1).jpg">
+            <img class="mySlides" src="https://i.postimg.cc/ThM245yH/Whats-App-Image-2026-04-15-at-10-30-16-PM-(3).jpg">
+            <img class="mySlides" src="https://i.postimg.cc/qgVB56t1/Whats-App-Image-2026-04-15-at-10-30-17-PM-(1).jpg">
         </div>
 
-        <div class="details-container">
-            <h3>Save The Date</h3>
+        <div class="details-container" id="detailsCard">
+            <h3>Our Subhamuhurtham</h3>
             
             <div class="info-card">
-                <h4>Sumuhurtham</h4>
-                <p style="font-size: 1.6rem; font-weight: 600; color: var(--deep-red);">Sunday 03<sup>rd</sup> May 2026</p>
+                <h4>Sai Kiran & Mounika</h4>
+                <p style="font-size: 1.7rem; font-weight: 600; background: var(--gradient-text); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Sunday 03<sup>rd</sup> May 2026</p>
                 <p><b>Time:</b> 07:14 a.m.</p>
                 <p>Anuradha Nakshatra Vrushabha Lagnam</p>
             </div>
@@ -223,23 +240,24 @@
                 <h4>Wedding Venue</h4>
                 <p><b>S.V. Convention Hall</b></p>
                 <p>Chunnambatti Wada, Mancherial, Telangana.</p>
-                <a href="https://www.google.com/maps/search/S.V.+Convention+Hall+Mancherial" target="_blank" class="btn">View on Google Maps</a>
+                <a href="https://www.google.com/maps/search/S.V.+Convention+Hall+Mancherial" target="_blank" class="btn">Wedding Location</a>
             </div>
 
-            <div class="info-card" style="background: #fffafa; border: 1px solid #ffdada; border-radius: 20px;">
+            <div class="info-card" style="background: rgba(255,250,250,0.7); border: 2px solid rgba(255,100,100,0.1); border-radius: 25px;">
                 <h4>Reception & Dinner</h4>
                 <p><b>Tuesday 05<sup>th</sup> May 2026</b></p>
                 <p>From 7:00 pm onwards</p>
                 <p>Rajahmundry, Katheru, Militari Colony at my Residence</p>
-                <a href="https://www.google.com/maps/search/Katheru+Rajahmundry" target="_blank" class="btn" style="background: var(--primary-gold);">Reception Location</a>
+                <a href="https://www.google.com/maps/search/Katheru+Rajahmundry" target="_blank" class="btn" style="background: linear-gradient(45deg, #a0a000, #b8860b);">Reception Location</a>
             </div>
             
-            <p style="font-family: 'Great Vibes'; font-size: 2.5rem; color: var(--deep-red); margin-top: 30px;">With Best Compliments from Near & Dear</p>
+            <p style="font-family: 'Great Vibes'; font-size: 3rem; color: var(--deep-red); margin-top: 40px; text-shadow: 1px 1px 2px rgba(255,100,100,0.1);">With Best Compliments from Near & Dear</p>
         </div>
     </div>
 
     <script>
         function enterInvite() {
+            // Smoothly open the gate
             document.getElementById('entry-gate').style.transform = 'translateY(-100%)';
             document.getElementById('main-content').style.display = 'block';
             
@@ -248,9 +266,10 @@
                 startSlideshow();
                 createPetals();
                 window.scrollTo(0, 0);
-            }, 600);
+            }, 500);
         }
 
+        // Slideshow Logic (Ken burns optimized)
         let slideIndex = 0;
         function startSlideshow() {
             let slides = document.getElementsByClassName("mySlides");
@@ -260,22 +279,34 @@
             slideIndex++;
             if (slideIndex > slides.length) {slideIndex = 1}    
             slides[slideIndex-1].style.display = "block";  
-            setTimeout(startSlideshow, 4500); 
+            setTimeout(startSlideshow, 5000); // 5 seconds per slide
         }
 
+        // Real World Rose Petals Animation
         function createPetals() {
             const container = document.getElementById('petals');
-            for (let i = 0; i < 45; i++) {
+            for (let i = 0; i < 50; i++) {
                 let petal = document.createElement('div');
                 petal.className = 'petal';
                 petal.style.left = Math.random() * 100 + 'vw';
-                petal.style.width = Math.random() * 15 + 10 + 'px';
+                petal.style.width = Math.random() * 18 + 10 + 'px'; // Varied sizes
                 petal.style.height = petal.style.width;
-                petal.style.animationDuration = Math.random() * 3 + 5 + 's';
-                petal.style.animationDelay = Math.random() * 8 + 's';
+                petal.style.animationDuration = Math.random() * 4 + 7 + 's'; // Slower for premium feel
+                petal.style.animationDelay = Math.random() * 10 + 's';
                 container.appendChild(petal);
             }
         }
+
+        // Add Scroll Animation Effect
+        window.addEventListener('scroll', function() {
+            var detailsCard = document.getElementById('detailsCard');
+            var cardPosition = detailsCard.getBoundingClientRect().top;
+            var screenPosition = window.innerHeight / 1.1;
+
+            if(cardPosition < screenPosition){
+                detailsCard.classList.add('visible');
+            }
+        });
     </script>
 </body>
 </html>
