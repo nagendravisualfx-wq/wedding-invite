@@ -3,137 +3,118 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sai Kiran & Mounika | Royal Wedding</title>
-    <link href="https://fonts.googleapis.com/css2?family=Pinyon+Script&family=Cinzel:wght@400;700&family=Montserrat:wght@300;500&family=Parisienne&display=swap" rel="stylesheet">
+    <title>Sai Kiran & Mounika Wedding</title>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Montserrat:wght@300;600&display=swap" rel="stylesheet">
     <style>
         :root {
-            --royal-gold: linear-gradient(to right, #bf953f, #fcf6ba, #b38728, #fcf6ba, #aa771c);
-            --deep-maroon: #4A0404;
-            --text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            --gold: #D4AF37;
+            --maroon: #600000;
+            --white: #ffffff;
         }
 
         body, html {
             margin: 0; padding: 0; width: 100%; height: 100%;
-            font-family: 'Montserrat', sans-serif; background: #0a0a0a;
+            font-family: 'Montserrat', sans-serif; background: #000;
             overflow-x: hidden; scroll-behavior: smooth;
         }
 
         /* Entry Gate - Split Screen */
         #entry-gate {
             display: flex; width: 100%; height: 100vh;
-            position: fixed; z-index: 1000;
-            transition: transform 1.3s cubic-bezier(1, 0, 0, 1);
+            position: fixed; z-index: 1000; top: 0; left: 0;
+            transition: transform 1.2s cubic-bezier(0.7, 0, 0.3, 1);
         }
 
         .side {
             width: 50%; height: 100%; display: flex; flex-direction: column;
             justify-content: center; align-items: center; cursor: pointer;
             position: relative; overflow: hidden;
+            background-color: #111; /* Fallback color */
         }
 
         .groom-side { 
-            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.4)), 
-            url('https://i.postimg.cc/xqDj4NJr/Whats-App-Image-2026-04-14-at-9-56-48-PM.jpg') center/cover; 
-            border-right: 2px solid #bf953f; 
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), 
+            url('https://i.postimg.cc/xqDj4NJr/Whats-App-Image-2026-04-14-at-9-56-48-PM.jpg') center/cover no-repeat; 
+            border-right: 2px solid var(--gold); 
         }
+        
         .bride-side { 
-            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.4)), 
-            url('https://i.postimg.cc/grFcTLw1/Whats-App-Image-2026-04-14-at-9-56-49-PM-(1).jpg') center/cover; 
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), 
+            url('https://i.postimg.cc/grFcTLw1/Whats-App-Image-2026-04-14-at-9-56-49-PM-(1).jpg') center/cover no-repeat; 
         }
 
         .side h2 { 
-            font-family: 'Pinyon Script', cursive; font-size: 5.5rem; 
-            color: #fff; text-shadow: var(--text-shadow); margin: 0; 
-            transition: 0.5s;
+            font-family: 'Great Vibes', cursive; font-size: 5rem; 
+            color: #fff; text-shadow: 2px 2px 10px #000; margin: 0; 
         }
-        .side:hover h2 { transform: scale(1.1); color: #fcf6ba; }
         
         .side p { 
-            font-family: 'Cinzel', serif; color: #fcf6ba; font-weight: bold; 
-            letter-spacing: 5px; border: 1px solid #bf953f;
-            padding: 10px 25px; border-radius: 2px; background: rgba(0,0,0,0.4);
+            font-family: 'Playfair Display', serif; color: var(--gold); 
+            font-weight: bold; letter-spacing: 4px; border: 1px solid var(--gold);
+            padding: 10px 20px; background: rgba(0,0,0,0.6); margin-bottom: 20px;
         }
 
         /* Main Content Section */
         #main-content {
             display: none; opacity: 0; text-align: center;
-            background: linear-gradient(rgba(0,0,0,0.85), rgba(0,0,0,0.85)), 
-                        url('https://i.postimg.cc/4nk4SHKr/Whats-App-Image-2026-04-15-at-10-30-15-PM.jpg') fixed center/cover;
-            backdrop-filter: blur(12px); padding-bottom: 100px; color: #fff;
+            background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), 
+                        url('https://i.postimg.cc/4nk4SHKr/Whats-App-Image-2026-04-15-at-10-30-15-PM.jpg') fixed center/cover no-repeat;
+            backdrop-filter: blur(8px); padding-bottom: 80px; color: #fff;
         }
 
-        .header-box { padding: 80px 20px; animation: fadeIn 2s ease; }
+        .header-box { padding: 80px 20px; }
         .header-box h1 { 
-            font-family: 'Pinyon Script', cursive; font-size: 7rem; 
-            background: var(--royal-gold); -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent; margin: 0;
-            filter: drop-shadow(0px 5px 5px rgba(0,0,0,0.5));
+            font-family: 'Great Vibes', cursive; font-size: 6rem; 
+            color: var(--gold); margin: 0;
+            text-shadow: 2px 2px 10px rgba(0,0,0,0.5);
         }
 
-        .sub-invite { font-family: 'Cinzel', serif; letter-spacing: 4px; color: #fcf6ba; font-size: 1.1rem; margin-bottom: 10px; }
+        .invite-text { font-family: 'Playfair Display', serif; font-size: 1.1rem; letter-spacing: 2px; color: #ddd; margin-top: 20px; }
 
-        /* Slideshow Fix */
+        /* Slideshow - Landscape fix */
         .slideshow-container {
-            width: 85%; max-width: 1100px; height: 75vh;
+            width: 90%; max-width: 1000px; height: 75vh;
             margin: 40px auto; position: relative;
-            background: rgba(255,255,255,0.05); border: 2px solid #bf953f;
-            border-radius: 5px; overflow: hidden;
-            display: flex; align-items: center; justify-content: center;
+            background: rgba(255,255,255,0.05); border: 1px solid var(--gold);
+            display: flex; align-items: center; justify-content: center; overflow: hidden;
         }
 
         .mySlides { 
             display: none; width: 100%; height: 100%; 
-            object-fit: contain; animation: slideFade 1.5s ease;
+            object-fit: contain; animation: fadeEffect 1s;
         }
 
-        /* Royal Card Details */
+        /* Details Section */
         .details-container {
-            width: 90%; max-width: 800px; margin: 50px auto;
-            background: rgba(20, 20, 20, 0.8); padding: 60px 30px;
-            border: 1px solid #bf953f; border-radius: 5px;
-            box-shadow: 0 0 30px rgba(191, 149, 63, 0.2);
+            width: 90%; max-width: 750px; margin: 40px auto;
+            background: rgba(20, 20, 20, 0.85); padding: 50px 20px;
+            border: 1px solid var(--gold); border-radius: 10px;
         }
 
-        .details-container h3 { 
-            font-family: 'Cinzel', serif; font-size: 3rem; 
-            background: var(--royal-gold); -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent; margin: 0;
-        }
-
-        .section-title { 
-            font-family: 'Parisienne', cursive; color: #fcf6ba; 
-            font-size: 2.2rem; margin-top: 40px; 
-        }
-
-        .highlight-date { 
-            font-family: 'Cinzel', serif; font-size: 2rem; 
-            color: #fff; letter-spacing: 3px; margin: 15px 0;
-        }
-
-        .info-p { font-size: 1.1rem; color: #ddd; margin: 5px 0; letter-spacing: 1px; }
+        .details-container h3 { font-family: 'Playfair Display', serif; font-size: 2.8rem; color: var(--gold); margin: 0; }
+        .section-title { font-family: 'Great Vibes', cursive; font-size: 2.5rem; color: var(--gold); margin-top: 30px; }
+        .highlight { font-size: 1.8rem; font-weight: bold; margin: 10px 0; color: #fff; letter-spacing: 2px; }
+        .info-p { font-size: 1.1rem; color: #ccc; margin: 5px 0; line-height: 1.6; }
 
         .btn {
-            display: inline-block; padding: 15px 40px; 
-            border: 1px solid #bf953f; color: #fcf6ba;
-            text-decoration: none; font-family: 'Cinzel', serif;
-            margin: 30px 10px; transition: 0.4s; background: transparent;
-            text-transform: uppercase; letter-spacing: 2px;
+            display: inline-block; padding: 15px 30px; 
+            border: 1px solid var(--gold); color: var(--gold);
+            text-decoration: none; margin: 20px 10px; transition: 0.3s;
+            font-weight: bold; text-transform: uppercase; letter-spacing: 2px;
         }
-        .btn:hover { background: #bf953f; color: #000; box-shadow: 0 0 20px #bf953f; }
+        .btn:hover { background: var(--gold); color: #000; }
 
-        /* Petals */
+        /* Rose Petals */
         .petals-container { position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 999; }
-        .petal { position: absolute; background: #fcf6ba; border-radius: 150% 0 150% 0; opacity: 0.3; animation: fall linear infinite; }
+        .petal { position: absolute; background: var(--gold); border-radius: 150% 0 150% 0; opacity: 0.4; animation: fall linear infinite; }
 
-        @keyframes fall { 0% { transform: translateY(-10vh) rotate(0deg); opacity: 0; } 100% { transform: translateY(110vh) rotate(1080deg); opacity: 0; } }
-        @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
-        @keyframes slideFade { from { opacity: 0.5; } to { opacity: 1; } }
+        @keyframes fall { 0% { transform: translateY(-10vh) rotate(0deg); opacity: 0; } 100% { transform: translateY(110vh) rotate(720deg); opacity: 0; } }
+        @keyframes fadeEffect { from { opacity: 0.4; } to { opacity: 1; } }
 
         @media (max-width: 600px) {
-            .side h2 { font-size: 3.5rem; }
+            .side h2 { font-size: 3rem; }
             .header-box h1 { font-size: 4rem; }
-            .slideshow-container { height: 50vh; }
-            .side p { font-size: 0.7rem; letter-spacing: 2px; }
+            .slideshow-container { height: 45vh; }
         }
     </style>
 </head>
@@ -154,9 +135,9 @@
 
     <div id="main-content">
         <div class="header-box">
-            <p class="sub-invite">Srirasthu • Subhamasthu • Avighnamasthu</p>
-            <p style="letter-spacing: 3px; font-weight: 300; color: #ccc;">YOU ARE CORDIALLY INVITED TO THE WEDDING OF</p>
+            <p style="color: var(--gold); letter-spacing: 5px;">SRIRASTHU • SUBHAMASTHU • AVIGHNAMASTHU</p>
             <h1>Sai Kiran & Mounika</h1>
+            <p class="invite-text">WE CORDIALLY INVITE YOU TO CELEBRATE OUR WEDDING</p>
         </div>
 
         <div class="slideshow-container">
@@ -168,27 +149,27 @@
         </div>
 
         <div class="details-container">
-            <h3>The Wedding Ceremony</h3>
+            <h3>Save The Date</h3>
             
             <div class="section-title">Subhamuhurtham</div>
-            <p class="highlight-date">Sunday, 03<sup>rd</sup> May 2026</p>
+            <p class="highlight">Sunday, 03<sup>rd</sup> May 2026</p>
             <p class="info-p"><b>At 07:14 AM</b></p>
             <p class="info-p">Anuradha Nakshatra Vrushabha Lagnam</p>
 
-            <div class="section-title">The Venue</div>
-            <p class="info-p" style="font-weight: 600; color: #fff;">S.V. CONVENTION HALL</p>
+            <div class="section-title">Wedding Venue</div>
+            <p class="info-p" style="font-weight: bold; color: #fff;">S.V. CONVENTION HALL</p>
             <p class="info-p">Chunnambatti Wada, Mancherial, Telangana.</p>
-            <a href="https://maps.app.goo.gl/9h6E7p8N7Q7" target="_blank" class="btn">View Venue Map</a>
+            <a href="https://maps.google.com/?cid=293776282828081670&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQ" target="_blank" class="btn">Wedding Map</a>
 
-            <div style="margin: 60px 0; border-top: 1px solid rgba(191, 149, 63, 0.3);"></div>
+            <div style="margin: 40px 0; border-top: 1px solid rgba(212, 175, 55, 0.3);"></div>
 
             <div class="section-title">Reception & Dinner</div>
-            <p class="highlight-date">Tuesday, 05<sup>th</sup> May 2026</p>
+            <p class="highlight">Tuesday, 05<sup>th</sup> May 2026</p>
             <p class="info-p">From 07:00 PM Onwards</p>
             <p class="info-p">Military Colony, Katheru, Rajahmundry</p>
-            <a href="https://maps.app.goo.gl/2L4J7P9N8R8" target="_blank" class="btn">Reception Map</a>
+            <a href="https://www.google.com/maps/contrib/100135418681620643543/reviews" target="_blank" class="btn">Reception Map</a>
             
-            <p style="font-family: 'Pinyon Script'; font-size: 3rem; color: #fcf6ba; margin-top: 50px;">With Best Compliments from Near & Dear</p>
+            <p style="font-family: 'Great Vibes'; font-size: 3.5rem; color: var(--gold); margin-top: 50px;">With Best Compliments from Near & Dear</p>
         </div>
     </div>
 
@@ -211,17 +192,17 @@
             slideIndex++;
             if (slideIndex > slides.length) {slideIndex = 1}    
             slides[slideIndex-1].style.display = "block";  
-            setTimeout(startSlideshow, 4500); 
+            setTimeout(startSlideshow, 4000); 
         }
 
         function createPetals() {
             const container = document.getElementById('petals');
-            for (let i = 0; i < 50; i++) {
+            for (let i = 0; i < 40; i++) {
                 let petal = document.createElement('div');
                 petal.className = 'petal';
                 petal.style.left = Math.random() * 100 + 'vw';
                 petal.style.width = Math.random() * 10 + 5 + 'px';
-                petal.style.animationDuration = Math.random() * 5 + 7 + 's';
+                petal.style.animationDuration = Math.random() * 5 + 5 + 's';
                 petal.style.animationDelay = Math.random() * 10 + 's';
                 container.appendChild(petal);
             }
