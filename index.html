@@ -110,4 +110,122 @@
             color: #fff; letter-spacing: 3px; margin: 15px 0;
         }
 
-        .info-p { font-size: 1.1rem; color: #ddd; margin: 5px 0;
+        .info-p { font-size: 1.1rem; color: #ddd; margin: 5px 0; letter-spacing: 1px; }
+
+        .btn {
+            display: inline-block; padding: 15px 40px; 
+            border: 1px solid #bf953f; color: #fcf6ba;
+            text-decoration: none; font-family: 'Cinzel', serif;
+            margin: 30px 10px; transition: 0.4s; background: transparent;
+            text-transform: uppercase; letter-spacing: 2px;
+        }
+        .btn:hover { background: #bf953f; color: #000; box-shadow: 0 0 20px #bf953f; }
+
+        /* Petals */
+        .petals-container { position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 999; }
+        .petal { position: absolute; background: #fcf6ba; border-radius: 150% 0 150% 0; opacity: 0.3; animation: fall linear infinite; }
+
+        @keyframes fall { 0% { transform: translateY(-10vh) rotate(0deg); opacity: 0; } 100% { transform: translateY(110vh) rotate(1080deg); opacity: 0; } }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes slideFade { from { opacity: 0.5; } to { opacity: 1; } }
+
+        @media (max-width: 600px) {
+            .side h2 { font-size: 3.5rem; }
+            .header-box h1 { font-size: 4rem; }
+            .slideshow-container { height: 50vh; }
+            .side p { font-size: 0.7rem; letter-spacing: 2px; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="petals-container" id="petals"></div>
+
+    <div id="entry-gate">
+        <div class="side groom-side" onclick="enterInvite()">
+            <p>Team Groom</p>
+            <h2>Sai Kiran</h2>
+        </div>
+        <div class="side bride-side" onclick="enterInvite()">
+            <p>Team Bride</p>
+            <h2>Mounika</h2>
+        </div>
+    </div>
+
+    <div id="main-content">
+        <div class="header-box">
+            <p class="sub-invite">Srirasthu • Subhamasthu • Avighnamasthu</p>
+            <p style="letter-spacing: 3px; font-weight: 300; color: #ccc;">YOU ARE CORDIALLY INVITED TO THE WEDDING OF</p>
+            <h1>Sai Kiran & Mounika</h1>
+        </div>
+
+        <div class="slideshow-container">
+            <img class="mySlides" src="https://i.postimg.cc/7b8PWJCc/Whats-App-Image-2026-04-15-at-10-30-15-PM-(2).jpg">
+            <img class="mySlides" src="https://i.postimg.cc/4nk4SHKS/Whats-App-Image-2026-04-15-at-10-30-16-PM.jpg">
+            <img class="mySlides" src="https://i.postimg.cc/XXSNzBZ1/Whats-App-Image-2026-04-15-at-10-30-16-PM-(1).jpg">
+            <img class="mySlides" src="https://i.postimg.cc/ThM245yH/Whats-App-Image-2026-04-15-at-10-30-16-PM-(3).jpg">
+            <img class="mySlides" src="https://i.postimg.cc/qgVB56t1/Whats-App-Image-2026-04-15-at-10-30-17-PM-(1).jpg">
+        </div>
+
+        <div class="details-container">
+            <h3>The Wedding Ceremony</h3>
+            
+            <div class="section-title">Subhamuhurtham</div>
+            <p class="highlight-date">Sunday, 03<sup>rd</sup> May 2026</p>
+            <p class="info-p"><b>At 07:14 AM</b></p>
+            <p class="info-p">Anuradha Nakshatra Vrushabha Lagnam</p>
+
+            <div class="section-title">The Venue</div>
+            <p class="info-p" style="font-weight: 600; color: #fff;">S.V. CONVENTION HALL</p>
+            <p class="info-p">Chunnambatti Wada, Mancherial, Telangana.</p>
+            <a href="https://maps.app.goo.gl/9h6E7p8N7Q7" target="_blank" class="btn">View Venue Map</a>
+
+            <div style="margin: 60px 0; border-top: 1px solid rgba(191, 149, 63, 0.3);"></div>
+
+            <div class="section-title">Reception & Dinner</div>
+            <p class="highlight-date">Tuesday, 05<sup>th</sup> May 2026</p>
+            <p class="info-p">From 07:00 PM Onwards</p>
+            <p class="info-p">Military Colony, Katheru, Rajahmundry</p>
+            <a href="https://maps.app.goo.gl/2L4J7P9N8R8" target="_blank" class="btn">Reception Map</a>
+            
+            <p style="font-family: 'Pinyon Script'; font-size: 3rem; color: #fcf6ba; margin-top: 50px;">With Best Compliments from Near & Dear</p>
+        </div>
+    </div>
+
+    <script>
+        function enterInvite() {
+            document.getElementById('entry-gate').style.transform = 'translateY(-100%)';
+            document.getElementById('main-content').style.display = 'block';
+            setTimeout(() => {
+                document.getElementById('main-content').style.opacity = '1';
+                startSlideshow();
+                createPetals();
+                window.scrollTo(0, 0);
+            }, 500);
+        }
+
+        let slideIndex = 0;
+        function startSlideshow() {
+            let slides = document.getElementsByClassName("mySlides");
+            for (let i = 0; i < slides.length; i++) { slides[i].style.display = "none"; }
+            slideIndex++;
+            if (slideIndex > slides.length) {slideIndex = 1}    
+            slides[slideIndex-1].style.display = "block";  
+            setTimeout(startSlideshow, 4500); 
+        }
+
+        function createPetals() {
+            const container = document.getElementById('petals');
+            for (let i = 0; i < 50; i++) {
+                let petal = document.createElement('div');
+                petal.className = 'petal';
+                petal.style.left = Math.random() * 100 + 'vw';
+                petal.style.width = Math.random() * 10 + 5 + 'px';
+                petal.style.animationDuration = Math.random() * 5 + 7 + 's';
+                petal.style.animationDelay = Math.random() * 10 + 's';
+                container.appendChild(petal);
+            }
+        }
+    </script>
+</body>
+</html>
