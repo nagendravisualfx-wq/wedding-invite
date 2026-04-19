@@ -119,7 +119,9 @@
     </style>
 </head>
 <body>
-
+<audio id="bg-music" loop>
+    <source src="https://files.catbox.moe/9lh049.mp3" type="audio/mpeg">
+</audio>
     <div class="petals-container" id="petals"></div>
 
     <div id="entry-gate">
@@ -186,15 +188,22 @@
 
     <script>
         function enterInvite() {
-            document.getElementById('entry-gate').style.transform = 'translateY(-100%)';
-            document.getElementById('main-content').style.display = 'block';
-            setTimeout(() => {
-                document.getElementById('main-content').style.opacity = '1';
-                startSlideshow();
-                createPetals();
-                window.scrollTo(0, 0);
-            }, 500);
-        }
+    // Music play chese logic
+    const music = document.getElementById('bg-music');
+    music.play().catch(error => {
+        console.log("Browser blocked auto-play, but clicking handles it.");
+    });
+
+    // Patha code (as it is)
+    document.getElementById('entry-gate').style.transform = 'translateY(-100%)';
+    document.getElementById('main-content').style.display = 'block';
+    setTimeout(() => {
+        document.getElementById('main-content').style.opacity = '1';
+        startSlideshow();
+        createPetals();
+        window.scrollTo(0, 0);
+    }, 500);
+}
 
         let slideIndex = 0;
         function startSlideshow() {
@@ -218,6 +227,19 @@
                 container.appendChild(petal);
             }
         }
+
+        function toggleMusic() {
+    const music = document.getElementById('bg-music');
+    const btn = document.getElementById('music-btn');
+    if (music.paused) {
+        music.play();
+        btn.innerHTML = "🎵";
+    } else {
+        music.pause();
+        btn.innerHTML = "🔇";
+    }
+}
+        <button class="music-control" onclick="toggleMusic()" id="music-btn">🎵</button>
     </script>
 </body>
 </html>
