@@ -188,22 +188,15 @@
 
     <script>
         function enterInvite() {
-    // Music play chese logic
-    const music = document.getElementById('bg-music');
-    music.play().catch(error => {
-        console.log("Browser blocked auto-play, but clicking handles it.");
-    });
-
-    // Patha code (as it is)
-    document.getElementById('entry-gate').style.transform = 'translateY(-100%)';
-    document.getElementById('main-content').style.display = 'block';
-    setTimeout(() => {
-        document.getElementById('main-content').style.opacity = '1';
-        startSlideshow();
-        createPetals();
-        window.scrollTo(0, 0);
-    }, 500);
-}
+            document.getElementById('entry-gate').style.transform = 'translateY(-100%)';
+            document.getElementById('main-content').style.display = 'block';
+            setTimeout(() => {
+                document.getElementById('main-content').style.opacity = '1';
+                startSlideshow();
+                createPetals();
+                window.scrollTo(0, 0);
+            }, 500);
+        }
 
         let slideIndex = 0;
         function startSlideshow() {
